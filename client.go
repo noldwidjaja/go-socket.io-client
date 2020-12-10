@@ -61,6 +61,10 @@ func NewClient(uri string, opts *Options) (client *Client, err error) {
 	return
 }
 
+func (client *Client) Of(namespace string) {
+	c.namespace = namespace
+}
+
 func (client *Client) On(message string, f interface{}) (err error) {
 	c, err := newCaller(f)
 	if err != nil {
